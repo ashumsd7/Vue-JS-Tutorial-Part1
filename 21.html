@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- not done -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Styling with css class</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .demo {
+            width: 50px;
+            height: 50px;
+            background-color: gray;
+            display: inline-block;
+            margin: 10px;
+        }
+
+
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: rgb(73, 73, 134);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- behind vue js will merge it all -->
+        <!-- :class={view js expect a object} -->
+        <div class="demo"
+         @click="attachRed= !attachRed" 
+         :class="{red:attachRed}">1</div>
+        <div class="demo" :class="{red:attachRed}">2</div>
+        <div class="demo" :class="{red:attachRed}">3</div>
+    </div>
+
+    <script>
+        new Vue({
+
+            el: "#app",
+            data: {
+                attachRed=false
+            }
+
+        });
+
+
+    </script>
+</body>
+
+</html>

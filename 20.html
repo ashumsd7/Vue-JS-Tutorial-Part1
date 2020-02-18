@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saving Ting Short hand property</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+
+<!-- @ is shothand for v-on
+and : is shorthand for v-bind -->
+<body>
+    <div id="app">
+        <button @click="chnageME">Click Here to Change</button>
+        <a :href="link">Google</a>
+        <p>{{ name}}</p>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                name: "Ashutosh",
+                link: "http://google.com"
+            },
+            methods: {
+                chnageME: function () {
+                    alert("dd");
+                    this.link = "http://quora.com"
+                }
+            }
+
+        })
+
+    </script>
+</body>
+
+</html>

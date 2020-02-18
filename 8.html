@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Displaying Raw html</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+<div id="app">
+    <h1>{{title}}</h1>
+    <p>{{sayHello() }}  - <a v-bind:href="link">Google</a></p>
+    <p v-html="finishedLink"> </p>
+</div>
+    
+
+<script>
+new Vue({
+
+    
+    el: "#app",
+    data:{
+        title: "hello sir",
+        link: "http://google.com",
+        finishedLink: `<a href="http://google.com">Google Visit</a>`
+
+
+        // as we hv learnt that its only rendered the text not the html
+        // so make possible this there is way there is a directive to disply raw html
+        //v-html="data value"
+    },
+    methods:{
+        sayHello: function(){
+            return this.title;
+
+        }
+    }
+
+});
+
+</script>
+</body>
+</html>

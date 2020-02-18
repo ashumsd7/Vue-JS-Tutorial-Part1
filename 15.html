@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Two way binding</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+</head>
+
+<body>
+    <div id="app">
+        <!--  v- model directives tells view js settip up data bindings for input field-->
+        <!-- it will change in all over the project whre we have used this -->
+       <!--  this is a type of drawback -->
+        <input type="text" v-model="name">
+        <p>{{ name }}</p>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                name: "max"
+
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>

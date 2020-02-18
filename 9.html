@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening Events</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+<div id="app">
+    <!-- here we can use any event name we wnat related to the button -->
+  <!--SYNTAX: v-on:eventName="function to call" -->
+    <button v-on:click="increase">Click ME</button>
+  <p> <h1>{{counter}}</h1></p>
+</div>
+    
+
+<script>
+new Vue({
+el:"#app",
+data:{
+counter:0
+
+},
+methods:{
+
+    increase: function(){
+        this.counter++;
+    }
+
+}
+
+})
+
+   
+
+</script>
+</body>
+</html>

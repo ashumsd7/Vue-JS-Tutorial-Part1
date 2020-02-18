@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reacting to changes we computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+<button v-on:click="increase">Increase</button>
+<button v-on:click="dec">DEC</button>
+
+<!-- WHat is problem here: We have used on single counter variaable and it is going to affect all ove rthe code 
+and it is big draback -->
+<p>Counter: {{ counter }}</p>
+<p> Result : {{result}}</p>
+    </div>
+
+
+
+    <script>
+new Vue({
+
+    el:"#app",
+    data: {
+        counter:0,
+        result: ''
+    },
+
+    //in next section see how we get rid off these two methods
+    methods:{
+        increase: function(){
+            this.counter++;
+            this.result= this.counter>5? "Greater Than 5 " : "Smaller than 5"
+        },
+        dec: function(){
+            this.counter--;
+            this.result= this.counter>5? "Greater Than 5 " : "Smaller than 5"
+        }
+    }
+
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passing my own argument in as events</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+<div id="app">
+
+    <!--  as we know we have passed here our own argument as 2 in increase() function , now if we still want something like auto created event Object, do like this -->
+   <!-- $ event is special type of keyword in vue.js Dont try to over ride it. -->
+    <button v-on:click="increase(2, $event)">Click ME</button>
+  <p> <h1>{{counter}}</h1></p>
+  <p v-on:mousemove="updateCoordinates">Coordinates:{{x}}/  {{y}}</p>
+</div>
+    
+
+<script>
+new Vue({
+el:"#app",
+data:{
+counter:0,
+x:0,
+y:0
+
+},
+methods:{
+
+    increase: function(step, event){
+        this.counter+=step;
+    },
+
+    //event event get passed automatically when ever we try to do these thinngs like handling events
+    //every time when we write an function at v-on then function event object craeted and passed auto matically
+    updateCoordinates: function(event){
+
+        this.x= event.clientX;
+        this.y= event.clientY;
+    }
+
+}
+
+})
+
+   
+
+</script>
+</body>
+</html>

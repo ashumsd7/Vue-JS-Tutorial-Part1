@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listenig to keyboard events</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+<div id="app">
+
+  
+    <button v-on:click="increase(2, $event)">Click ME</button>
+  <p> <h1>{{counter}}</h1></p>
+  <p v-on:mousemove="updateCoordinates">Coordinates:{{x}}/  {{y}}
+
+
+   
+-<span v-on:mousemove.stop="">DEAD SPOT</span>
+
+
+
+  </p>
+
+  <!--  there are many things over here to use  event.xxx.xxxx -->
+  <!-- space / esc / key/ tap etc... -->
+  <input type="text" v-on:keyup.enter.space="alertMe">
+</div>
+    
+
+<script>
+new Vue({
+el:"#app",
+data:{
+counter:0,
+x:0,
+y:0
+
+},
+methods:{
+
+    increase: function(step, event){
+        this.counter+=step;
+    },
+
+  
+    updateCoordinates: function(event){
+
+        this.x= event.clientX;
+        this.y= event.clientY;
+    },
+
+    alertMe: function(){
+        alert('Alert ME');
+    }
+
+}
+
+})
+
+   
+
+</script>
+</body>
+</html>

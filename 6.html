@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+<div id="app">
+    <!-- v-once  used to display only one-->
+    <h1 v-once>{{ title}}</h1>
+    <p>{{ sayHello() }}</p>
+</div>
+    
+
+<script>
+
+new Vue({
+
+el: '#app',
+data:{
+    title: 'sayonara'
+},
+methods:{
+    sayHello: function(){
+
+        //sayonara is converted to hello and h1 tag also gets a 
+        // so keep in mind All usage of title get re-rendered once the property changes.
+        // to avoid this use a directives
+         this.title= "hello";
+       
+        return this.title;
+    }
+
+
+}
+
+});
+
+</script>
+</body>
+</html>

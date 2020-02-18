@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Displaying Raw html</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+<div id="app">
+    <h1>{{title}}</h1>
+    <p>{{sayHello() }}  - <a v-bind:href="link">Google</a></p>
+    <p>{{finishedLink}} </p>
+</div>
+    
+
+<script>
+new Vue({
+
+    //vue only render text : run an lean like it is only rendering the text which we have written as raw html
+    el: "#app",
+    data:{
+        title: "hello sir",
+        link: "http://google.com",
+        finishedLink: `<a href="http://google.com">Google Visit</a>`
+    },
+    methods:{
+        sayHello: function(){
+            return this.title;
+
+        }
+    }
+
+});
+
+</script>
+</body>
+</html>

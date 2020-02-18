@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- problem -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Displaying Raw html</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+   
+<div id="app">
+    <h1>{{title}}</h1>
+    <button v-on:click="changeME" > Change Link</button>
+ <a v-bind:href="link">Google</a>
+   
+</div>
+    
+
+<script>
+new Vue({
+
+    //vue only render text : run an lean like it is only rendering the text which we have written as raw html
+    el: "#app",
+    data:{
+        title: "hello sir",
+        link: "http://google.com"
+       
+    },
+    methods:{
+        changeME: function(){
+            alert("d");
+            this.link="http://quora.com"
+       
+
+        }
+    }
+
+});
+
+</script>
+</body>
+</html>

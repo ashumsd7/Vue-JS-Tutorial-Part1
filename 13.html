@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modyfying an evnet</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+<div id="app">
+
+    <!--  as we know we have passed here our own argument as 2 in increase() function , now if we still want something like auto created event Object, do like this -->
+   <!-- $ event is special type of keyword in vue.js Dont try to over ride it. -->
+    <button v-on:click="increase(2, $event)">Click ME</button>
+  <p> <h1>{{counter}}</h1></p>
+  <p v-on:mousemove="updateCoordinates">Coordinates:{{x}}/  {{y}}
+
+
+    <!-- we are trying to amke that we somebody try to over the span tag the span tag will fire the dummy method and it will stop propagation -->
+-<span v-on:mousemove.stop="">DEAD SPOT</span>
+
+
+  </p>
+</div>
+    
+
+<script>
+new Vue({
+el:"#app",
+data:{
+counter:0,
+x:0,
+y:0
+
+},
+methods:{
+
+    increase: function(step, event){
+        this.counter+=step;
+    },
+
+    //event event get passed automatically when ever we try to do these thinngs like handling events
+    //every time when we write an function at v-on then function event object craeted and passed auto matically
+    updateCoordinates: function(event){
+
+        this.x= event.clientX;
+        this.y= event.clientY;
+    },
+
+    // // we can remove this too and make a easier way to do this , the hack will be written where we have used v-on directive 
+    // dummy: function(event)
+    // {
+    //     event.stopPropagation();
+    // }
+
+}
+
+})
+
+   
+
+</script>
+</body>
+</html>

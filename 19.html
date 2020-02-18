@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saving Time use shorthands</title>
+</head>
+<body>
+    <div id="app">
+<button v-on:click="changeLink">Click to change Link</button>
+<a v-bind:href="link">Google</a>
+<a v-bind:href="">fff</a>
+    </div>
+
+    <script>
+        new Vue({
+        
+            el: "#app",
+            data:{
+                link: "http://google.co.in"
+            },
+            methods:{
+                changeLink: function(){
+                    this.link= "https://quora.com"
+                }
+            }
+
+        });
+
+
+    </script>
+</body>
+</html>

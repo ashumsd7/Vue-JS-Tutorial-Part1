@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    
+
+    <!-- it is showing how can we pass a html agrument dynamically -->
+    <!-- in curly braces {{}} jus pass what ever u want a function or a property which exists in data object of vue instance -->
+<div id="app">
+    <p>{{ sayHello() }}- 
+        <!-- - <a href="{{ link  }}">Google</a> -->
+        <!-- if u write code of type above it will not work -->
+
+        <!--  v-bind says hey dont use normal htnl attribute here let's bind it -->
+        <!-- v: bind is a directive -->
+       -- <a v-bind:href="link">Google</a>
+    </p>
+</div>
+    
+
+<script>
+
+new Vue({
+
+el: '#app',
+data:{
+    title: 'sayonara',
+    link: 'http://google.com'
+},
+methods:{
+    sayHello: function(){
+
+        //Note: this automatically give access to the proxy properties, mrthods whatever it is.
+        // here it is referring to the data object
+        return this.title;
+    }
+
+
+}
+
+});
+
+</script>
+</body>
+</html>

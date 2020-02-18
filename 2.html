@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <input type="text" v-on:input="chnageTitle">
+        <p>{{title}}</p>
+    </div>
+
+    <script>
+
+       var vjs= new Vue({
+
+
+
+            el: '.app',
+            data: {
+
+                title: "hey vue"
+            },
+
+            methods: {
+
+                chnageTitle: function (event) {
+                    //this referring to the title which is being used in data section
+                    this.title= event.target.value;
+                }
+
+            }
+
+
+        })
+    </script>
+
+</body>
+
+</html>

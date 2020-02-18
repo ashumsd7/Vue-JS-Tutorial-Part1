@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reacting to changes we computed</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+<button v-on:click="counter++">Increase</button>
+<button v-on:click="counter--">DEC</button>
+
+
+<p>Counter: {{ counter }}</p>
+<p> Result : {{result()}} || {{ output }}</p>
+
+<!--  what is problem writing result () method any time when documnet will be updated 
+it will be called each and every time, Think about if result is very heavy code then there will be problem  -->
+ <!-- So these typeof methods need not be executed again and again -->
+ <!--  there is way to handle this. vue js computer property -->
+
+ <!-- output is like aproperty and result is used as function -->
+</div>
+
+<!--  both method will give same out put , result gets called every time but output not -->
+ 
+    <script>
+new Vue({
+
+    el:"#app",
+    data: {
+        counter:0,
+      
+    },
+
+     computed:{
+        output: function(){
+            return this.counter>5 ? "greater 5" : "lesser 5";
+        }
+
+     },
+    
+    methods:{
+
+        result(){
+            return this.counter>5 ? "greater 5" : "lesser 5";
+        }
+    }
+
+});
+
+    </script>
+</body>
+</html>
